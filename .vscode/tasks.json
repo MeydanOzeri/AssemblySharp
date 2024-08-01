@@ -1,0 +1,26 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build Solution File",
+			"type": "process",
+			"command": "",
+			"windows": {
+				"command": "pwsh",
+				"args": ["-Command", "dotnet sln AssemblySharp.sln remove (ls -r **/*.csproj)", "&&", "dotnet sln AssemblySharp.sln add (ls -r **/*.csproj)"]
+			},
+			"problemMatcher": "$msCompile"
+		},
+		{
+			"label": "Build Solution",
+			"type": "process",
+			"command": "",
+			"dependsOn": ["Build Solution File"],
+			"windows": {
+				"command": "pwsh",
+				"args": ["-Command", "(ls -r **/*.csproj) | ForEach-Object { dotnet build $project /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary }"]
+			},
+			"problemMatcher": "$msCompile"
+		}
+	]
+}
