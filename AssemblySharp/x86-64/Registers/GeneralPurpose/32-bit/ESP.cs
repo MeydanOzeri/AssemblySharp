@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class ESP : IX86_32BitsGeneralPurposeRegister, IX64_32BitsGeneralPurposeRegister
 {
-    public string Name => nameof(ESP);
-    public byte RegisterCode => 0x04;
+	public string Name => nameof(ESP);
+	public byte RegisterCode => 0x04;
 }

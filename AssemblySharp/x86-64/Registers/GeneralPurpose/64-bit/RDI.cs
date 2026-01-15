@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class RDI : IX64_64BitsGeneralPurposeRegister
 {
-    public string Name => nameof(RDI);
-    public byte RegisterCode => 0x07;
+	public string Name => nameof(RDI);
+	public byte RegisterCode => 0x07;
 }

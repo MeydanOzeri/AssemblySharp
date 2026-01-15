@@ -1,0 +1,9 @@
+{
+	"stryker-config": {
+		"configuration": "Release",
+		"mutation-level": "Complete",
+		"test-projects": ["./AssemblySharp.Tests.csproj"],
+		"reporters": ["html", "progress"],
+		"thresholds": { "high": 100, "low": 90, "break": 80 }
+	}
+}

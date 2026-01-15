@@ -7,6 +7,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class EBP : IX86_32BitsGeneralPurposeRegister, IX64_32BitsGeneralPurposeRegister
 {
-    public string Name => nameof(EBP);
-    public byte RegisterCode => 0x05;
+	public string Name => nameof(EBP);
+	public byte RegisterCode => 0x05;
 }

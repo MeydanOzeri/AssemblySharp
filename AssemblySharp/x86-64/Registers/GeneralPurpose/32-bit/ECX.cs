@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class ECX : IX86_32BitsGeneralPurposeRegister, IX64_32BitsGeneralPurposeRegister
 {
-    public string Name => nameof(ECX);
-    public byte RegisterCode => 0x01;
+	public string Name => nameof(ECX);
+	public byte RegisterCode => 0x01;
 }

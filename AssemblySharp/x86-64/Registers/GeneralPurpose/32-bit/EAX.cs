@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class EAX : IX86_32BitsGeneralPurposeRegister, IX64_32BitsGeneralPurposeRegister
 {
-    public string Name => nameof(EAX);
-    public byte RegisterCode => 0x00;
+	public string Name => nameof(EAX);
+	public byte RegisterCode => 0x00;
 }

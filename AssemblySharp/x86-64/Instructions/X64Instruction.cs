@@ -1,6 +1,3 @@
 namespace AssemblySharp.X64;
 
-public record struct X64Instruction
-{
-    
-}
+public record struct X64Instruction { }

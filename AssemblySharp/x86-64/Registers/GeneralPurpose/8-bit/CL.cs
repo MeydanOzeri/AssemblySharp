@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public sealed class CL : IX86_8BitsGeneralPurposeRegister, IX64_8BitsGeneralPurposeRegister
 {
-    public string Name => nameof(CL);
-    public byte RegisterCode => 0x01;
+	public string Name => nameof(CL);
+	public byte RegisterCode => 0x01;
 }

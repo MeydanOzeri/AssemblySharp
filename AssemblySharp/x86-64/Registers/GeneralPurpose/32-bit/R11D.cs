@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class R11D : IX64_32BitsGeneralPurposeRegister
 {
-    public string Name => nameof(R11D);
-    public byte RegisterCode => 0x0B;
+	public string Name => nameof(R11D);
+	public byte RegisterCode => 0x0B;
 }

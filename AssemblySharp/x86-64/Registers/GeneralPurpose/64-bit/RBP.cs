@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class RBP : IX64_64BitsGeneralPurposeRegister
 {
-    public string Name => nameof(RBP);
-    public byte RegisterCode => 0x05;
+	public string Name => nameof(RBP);
+	public byte RegisterCode => 0x05;
 }

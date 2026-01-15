@@ -1,0 +1,16 @@
+{
+	"version": "0.2",
+	"language": "en",
+	"words": [
+		"REPE",
+		"REPNE",
+		"REPNZ",
+		"REPZ",
+		"Xunit"
+	],
+	"ignorePaths": [
+		".git",
+		"**/bin",
+		"**/obj"
+	]
+}

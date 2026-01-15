@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public sealed class SPL : IX64_8BitsGeneralPurposeRegister
 {
-    public string Name => nameof(SPL);
-    public byte RegisterCode => 0x04;
+	public string Name => nameof(SPL);
+	public byte RegisterCode => 0x04;
 }

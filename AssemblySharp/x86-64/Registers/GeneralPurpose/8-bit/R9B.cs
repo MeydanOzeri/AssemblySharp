@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public sealed class R9B : IX64_8BitsGeneralPurposeRegister
 {
-    public string Name => nameof(R9B);
-    public byte RegisterCode => 0x09;
+	public string Name => nameof(R9B);
+	public byte RegisterCode => 0x09;
 }

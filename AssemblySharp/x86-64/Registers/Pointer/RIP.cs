@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.Pointer;
 /// </summary>
 public class RIP : IRegister
 {
-    public string Name => nameof(RIP);
-    public byte RegisterCode => 0x05;
+	public string Name => nameof(RIP);
+	public byte RegisterCode => 0x05;
 }

@@ -1,5 +1,3 @@
 namespace AssemblySharp.Addressing;
 
-public interface IMemoryAddressing
-{
-}
+public interface IMemoryAddressing { }

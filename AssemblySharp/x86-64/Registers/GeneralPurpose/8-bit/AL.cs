@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public sealed class AL : IX86_8BitsGeneralPurposeRegister, IX64_8BitsGeneralPurposeRegister
 {
-    public string Name => nameof(AL);
-    public byte RegisterCode => 0x00;
+	public string Name => nameof(AL);
+	public byte RegisterCode => 0x00;
 }

@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class RDX : IX64_64BitsGeneralPurposeRegister
 {
-    public string Name => nameof(RDX);
-    public byte RegisterCode => 0x02;
+	public string Name => nameof(RDX);
+	public byte RegisterCode => 0x02;
 }

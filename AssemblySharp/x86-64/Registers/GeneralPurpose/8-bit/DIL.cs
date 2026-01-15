@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public sealed class DIL : IX64_8BitsGeneralPurposeRegister
 {
-    public string Name => nameof(DIL);
-    public byte RegisterCode => 0x07;
+	public string Name => nameof(DIL);
+	public byte RegisterCode => 0x07;
 }

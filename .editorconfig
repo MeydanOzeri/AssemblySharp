@@ -3,7 +3,7 @@ root = true
 
 [*]
 indent_size = 4
-indent_style = space
+indent_style = tab
 tab_width = 4
 end_of_line = lf
 charset = utf-8
@@ -43,7 +43,7 @@ charset = utf-8
 
 # Indentation and spacing
 indent_size = 4
-indent_style = space
+indent_style = tab
 tab_width = 4
 
 # New line preferences
@@ -54,7 +54,7 @@ insert_final_newline = true
 #### .NET Coding Conventions ####
 
 # Organize usings
-dotnet_separate_import_directive_groups = true
+dotnet_separate_import_directive_groups = false
 dotnet_sort_system_directives_first = true
 file_header_template = unset
 

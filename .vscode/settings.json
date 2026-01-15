@@ -1,3 +1,43 @@
 {
     "dotnet.defaultSolution": "AssemblySharp.sln",
+    "accessibility.signalOptions.volume": 0,
+    "editor.formatOnSave": true,
+    "editor.autoClosingBrackets": "always",
+    "editor.bracketPairColorization.enabled": true,
+    "files.insertFinalNewline": true,
+    "explorer.compactFolders": false,
+    "xml.format.maxLineWidth": 180,
+    "yaml.format.printWidth": 180,
+    "prettier.printWidth": 180,
+    "MS-CST-E.vscode-devskim.ignores.ignoreRulesList": ["DS187371"],
+    "MS-CST-E.vscode-devskim.rules.enableBestPracticeSeverityRules": true,
+    "MS-CST-E.vscode-devskim.rules.enableManualReviewSeverityRules": true,
+    "MS-CST-E.vscode-devskim.rules.enableLowConfidenceRules": true,
+    "dotnet.backgroundAnalysis.compilerDiagnosticsScope": "fullSolution",
+    "dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "fullSolution",
+    "csharp.inlayHints.enableInlayHintsForImplicitObjectCreation": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "files.associations": {
+        "*.yaml": "yaml",
+        "appsettings*.json": "jsonc"
+    },
+    "[razor][aspnetcorerazor]": {
+        "editor.formatOnSave": false
+    },
+    "[csharp]": {
+        "editor.defaultFormatter": "csharpier.csharpier-vscode"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[xml]": {
+        "editor.defaultFormatter": "redhat.vscode-xml"
+    },
+    "[json][jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    },
+    "explorer.sortOrder": "modified"
 }

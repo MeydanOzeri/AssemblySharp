@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class R9W : IX64_16BitsGeneralPurposeRegister
 {
-    public string Name => nameof(R9W);
-    public byte RegisterCode => 0x09;
+	public string Name => nameof(R9W);
+	public byte RegisterCode => 0x09;
 }

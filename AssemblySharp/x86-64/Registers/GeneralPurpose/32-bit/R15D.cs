@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class R15D : IX64_32BitsGeneralPurposeRegister
 {
-    public string Name => nameof(R15D);
-    public byte RegisterCode => 0x0F;
+	public string Name => nameof(R15D);
+	public byte RegisterCode => 0x0F;
 }

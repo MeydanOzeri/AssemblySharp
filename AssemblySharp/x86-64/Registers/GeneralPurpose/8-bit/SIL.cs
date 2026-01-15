@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public sealed class SIL : IX64_8BitsGeneralPurposeRegister
 {
-    public string Name => nameof(SIL);
-    public byte RegisterCode => 0x06;
+	public string Name => nameof(SIL);
+	public byte RegisterCode => 0x06;
 }

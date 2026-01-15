@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class EBX : IX86_32BitsGeneralPurposeRegister, IX64_32BitsGeneralPurposeRegister
 {
-    public string Name => nameof(EBX);
-    public byte RegisterCode => 0x03;
+	public string Name => nameof(EBX);
+	public byte RegisterCode => 0x03;
 }

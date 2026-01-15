@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class RSI : IX64_64BitsGeneralPurposeRegister
 {
-    public string Name => nameof(RSI);
-    public byte RegisterCode => 0x06;
+	public string Name => nameof(RSI);
+	public byte RegisterCode => 0x06;
 }

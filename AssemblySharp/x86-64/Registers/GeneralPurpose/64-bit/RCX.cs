@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class RCX : IX64_64BitsGeneralPurposeRegister
 {
-    public string Name => nameof(RCX);
-    public byte RegisterCode => 0x01;
+	public string Name => nameof(RCX);
+	public byte RegisterCode => 0x01;
 }

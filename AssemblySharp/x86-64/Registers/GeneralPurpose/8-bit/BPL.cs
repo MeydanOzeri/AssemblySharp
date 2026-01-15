@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public sealed class BPL : IX64_8BitsGeneralPurposeRegister
 {
-    public string Name => nameof(BPL);
-    public byte RegisterCode => 0x05;
+	public string Name => nameof(BPL);
+	public byte RegisterCode => 0x05;
 }

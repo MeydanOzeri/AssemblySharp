@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class DI : IX86_16BitsGeneralPurposeRegister, IX64_16BitsGeneralPurposeRegister
 {
-    public string Name => nameof(DI);
-    public byte RegisterCode => 0x07;
+	public string Name => nameof(DI);
+	public byte RegisterCode => 0x07;
 }

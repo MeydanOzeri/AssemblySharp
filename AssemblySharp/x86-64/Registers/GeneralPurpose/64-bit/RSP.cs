@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class RSP : IX64_64BitsGeneralPurposeRegister
 {
-    public string Name => nameof(RSP);
-    public byte RegisterCode => 0x04;
+	public string Name => nameof(RSP);
+	public byte RegisterCode => 0x04;
 }

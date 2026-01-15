@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblySharp", "AssemblySh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblySharp.Generators", "AssemblySharp.Generators\AssemblySharp.Generators.csproj", "{D15C7499-44C8-47F5-B20F-3791631F065B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblySharp.TestsOLD", "AssemblySharp.Tests(OLD)\AssemblySharp.TestsOLD.csproj", "{78C869F8-1165-4C2E-9279-F48B6127EAA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblySharp.Tests", "AssemblySharp.Tests\AssemblySharp.Tests.csproj", "{78C869F8-1165-4C2E-9279-F48B6127EAA5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{B07F99BA-F5CE-4867-AC8A-F69684BD01BE}"
 EndProject

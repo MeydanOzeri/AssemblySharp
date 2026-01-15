@@ -2,12 +2,14 @@
 
 Data Transfer Instructions
 -
+
 - MOV: Moves data from one location to another.
 - PUSH: Pushes a register or value onto the stack.
 - POP: Pops a value from the stack into a register.
 
 Arithmetic Instructions
 -
+
 - ADD: Adds two values.
 - SUB: Subtracts one value from another.
 - INC: Increments a value.
@@ -17,6 +19,7 @@ Arithmetic Instructions
 
 Logical Instructions
 -
+
 - AND: Performs bitwise AND operation.
 - OR: Performs bitwise OR operation.
 - XOR: Performs bitwise XOR operation.
@@ -24,6 +27,7 @@ Logical Instructions
 
 Control Flow Instructions
 -
+
 - JMP: Jumps to another location in code.
 - CALL: Calls a procedure or function.
 - RET: Returns from a procedure or function.
@@ -31,12 +35,14 @@ Control Flow Instructions
 
 String and Set Instructions
 -
+
 - MOVS: Moves string data from one string to another.
 - CMPS: Compares two strings.
 - SCAS: Scans a string.
 
 Miscellaneous Instructions
 -
+
 - NOP: No operation.
 - LEA: Load effective address.
 
@@ -57,6 +63,7 @@ Miscellaneous Instructions
       +----------------+       +----------------+
       |  X86Assembler  |       |  X64Assembler  |
       +----------------+       +----------------+
+
 |
 -
 

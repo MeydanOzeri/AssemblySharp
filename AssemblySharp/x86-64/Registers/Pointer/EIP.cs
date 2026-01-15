@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.Pointer;
 /// </summary>
 public class EIP : IRegister
 {
-    public string Name => nameof(EIP);
-    public byte RegisterCode => 0x05;
+	public string Name => nameof(EIP);
+	public byte RegisterCode => 0x05;
 }

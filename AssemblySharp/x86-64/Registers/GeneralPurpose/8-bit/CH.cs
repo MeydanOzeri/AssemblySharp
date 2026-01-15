@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public sealed class CH : IX86_8BitsGeneralPurposeRegister
 {
-    public string Name => nameof(CH);
-    public byte RegisterCode => 0x05;
+	public string Name => nameof(CH);
+	public byte RegisterCode => 0x05;
 }

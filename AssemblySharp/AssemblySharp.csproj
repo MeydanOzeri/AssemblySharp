@@ -1,23 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <PackageId>AssemblySharp</PackageId>
-        <Version>1.0.0</Version>
-        <PackageVersion>1.0.0</PackageVersion>
-        <Title>AssemblySharp</Title>
-        <Authors>Meydan Ozeri</Authors>
-        <Description>Write Native Assembly In C#</Description>
-        <PackageProjectUrl>https://github.com/MeydanOzeri/AssemblySharp</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/MeydanOzeri/AssemblySharp</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-        <Copyright></Copyright>
-        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\AssemblySharp.Generators\AssemblySharp.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-    </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PackageId>AssemblySharp</PackageId>
+		<Version>1.0.0</Version>
+		<PackageVersion>1.0.0</PackageVersion>
+		<Title>AssemblySharp</Title>
+		<Authors>Meydan Ozeri</Authors>
+		<Description>Write Native Assembly In C#</Description>
+		<PackageProjectUrl>https://github.com/MeydanOzeri/AssemblySharp</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/MeydanOzeri/AssemblySharp</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<Copyright></Copyright>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\AssemblySharp.Generators\AssemblySharp.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+	</ItemGroup>
 </Project>

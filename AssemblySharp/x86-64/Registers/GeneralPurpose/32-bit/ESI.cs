@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class ESI : IX86_32BitsGeneralPurposeRegister, IX64_32BitsGeneralPurposeRegister
 {
-    public string Name => nameof(ESI);
-    public byte RegisterCode => 0x06;
+	public string Name => nameof(ESI);
+	public byte RegisterCode => 0x06;
 }

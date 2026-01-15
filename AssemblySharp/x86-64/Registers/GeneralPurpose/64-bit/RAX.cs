@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class RAX : IX64_64BitsGeneralPurposeRegister
 {
-    public string Name => nameof(RAX);
-    public byte RegisterCode => 0x00;
+	public string Name => nameof(RAX);
+	public byte RegisterCode => 0x00;
 }

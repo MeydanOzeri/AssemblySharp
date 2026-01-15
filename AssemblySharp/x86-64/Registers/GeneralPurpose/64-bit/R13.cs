@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class R13 : IX64_64BitsGeneralPurposeRegister
 {
-    public string Name => nameof(R13);
-    public byte RegisterCode => 0x0D;
+	public string Name => nameof(R13);
+	public byte RegisterCode => 0x0D;
 }

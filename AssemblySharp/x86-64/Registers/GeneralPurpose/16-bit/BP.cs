@@ -5,6 +5,6 @@ namespace AssemblySharp.Registers.GeneralPurpose;
 /// </summary>
 public class BP : IX86_16BitsGeneralPurposeRegister, IX64_16BitsGeneralPurposeRegister
 {
-    public string Name => nameof(BP);
-    public byte RegisterCode => 0x05;
+	public string Name => nameof(BP);
+	public byte RegisterCode => 0x05;
 }
