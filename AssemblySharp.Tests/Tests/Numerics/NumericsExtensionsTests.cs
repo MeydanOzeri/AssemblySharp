@@ -1,104 +1,99 @@
 ﻿namespace AssemblySharp.Tests.Tests.Numerics;
 
-public class NumericsExtensionsTests
+[GenerateGenericTest(typeof(byte))]
+[GenerateGenericTest(typeof(sbyte))]
+[GenerateGenericTest(typeof(short))]
+[GenerateGenericTest(typeof(ushort))]
+[GenerateGenericTest(typeof(int))]
+[GenerateGenericTest(typeof(uint))]
+[GenerateGenericTest(typeof(long))]
+[GenerateGenericTest(typeof(ulong))]
+[GenerateGenericTest(typeof(nint))]
+[GenerateGenericTest(typeof(nuint))]
+[GenerateGenericTest(typeof(float))]
+[GenerateGenericTest(typeof(double))]
+[GenerateGenericTest(typeof(decimal))]
+public class NumericsExtensionsTests<TNumberType>
+	where TNumberType : INumber<TNumberType>
 {
-	public static IEnumerable<object[]> GetData(bool isExceptionTest)
+	private static bool BytesEqual(byte[] actual, byte[] expected) => actual.AsSpan().SequenceEqual(expected);
+
+	[Test]
+	public async Task GetBytes_WhenNumberProvided_ReturnBytes()
 	{
-		if (isExceptionTest)
-		{
-			yield return new object[] { new Int128(1, 1) };
-			yield break;
-		}
+		// Arrange
+		var number = TNumberType.One;
 
-		yield return new object[] { (byte)0x01 };
-		yield return new object[] { (sbyte)0x01 };
-
-		yield return new object[] { (short)0x01 };
-		yield return new object[] { (ushort)0x01 };
-
-		yield return new object[] { (int)0x01 };
-		yield return new object[] { (uint)0x01 };
-
-		yield return new object[] { (long)0x01 };
-		yield return new object[] { (ulong)0x01 };
-
-		yield return new object[] { (nint)0x01 };
-		yield return new object[] { (nuint)0x01 };
-
-		yield return new object[] { (float)0x01 };
-		yield return new object[] { (double)0x01 };
-		yield return new object[] { (decimal)0x01 };
-	}
-
-	[Theory]
-	[MemberData(nameof(GetData), parameters: false)]
-	public void GetBytes_WhenNumberProvided_ReturnBytes<TNumberType>(TNumberType number)
-		where TNumberType : INumberBase<TNumberType>
-	{
 		// Act
 		var bytes = number.GetBytes();
 
 		// Assert
 		_ = typeof(TNumberType).Name switch
 		{
-			nameof(Byte) or nameof(SByte) => bytes.Should().Equal(0x01),
-			nameof(Int16) or nameof(UInt16) => bytes.Should().Equal(0x01, 0x00),
-			nameof(Int32) or nameof(UInt32) => bytes.Should().Equal(0x01, 0x00, 0x00, 0x00),
-			nameof(Int64) or nameof(UInt64) => bytes.Should().Equal(0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00),
-			nameof(IntPtr) or nameof(UIntPtr) when IntPtr.Size == 4 => bytes.Should().Equal(0x01, 0x00, 0x00, 0x00),
-			nameof(IntPtr) or nameof(UIntPtr) when IntPtr.Size == 8 => bytes.Should().Equal(0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00),
-			nameof(Single) => bytes.Should().Equal(0x00, 0x00, 0x80, 0x3F),
-			nameof(Double) => bytes.Should().Equal(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xF0, 0x3F),
-			nameof(Decimal) => bytes.Should().Equal(0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00),
-			_ => null,
+			nameof(Byte) or nameof(SByte) => await Assert.That(BytesEqual(bytes, [0x01])).IsTrue(),
+			nameof(Int16) or nameof(UInt16) => await Assert.That(BytesEqual(bytes, [0x01, 0x00])).IsTrue(),
+			nameof(Int32) or nameof(UInt32) => await Assert.That(BytesEqual(bytes, [0x01, 0x00, 0x00, 0x00])).IsTrue(),
+			nameof(Int64) or nameof(UInt64) => await Assert.That(BytesEqual(bytes, [0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00])).IsTrue(),
+			nameof(IntPtr) or nameof(UIntPtr) when IntPtr.Size == 4 => await Assert.That(BytesEqual(bytes, [0x01, 0x00, 0x00, 0x00])).IsTrue(),
+			nameof(IntPtr) or nameof(UIntPtr) when IntPtr.Size == 8 => await Assert.That(BytesEqual(bytes, [0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00])).IsTrue(),
+			nameof(Single) => await Assert.That(BytesEqual(bytes, [0x00, 0x00, 0x80, 0x3F])).IsTrue(),
+			nameof(Double) => await Assert.That(BytesEqual(bytes, [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xF0, 0x3F])).IsTrue(),
+			nameof(Decimal) => await Assert.That(BytesEqual(bytes, [0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00])).IsTrue(),
+			_ => false,
 		};
 	}
 
-	[Theory]
-	[MemberData(nameof(GetData), parameters: true)]
-	public void GetBytes_WhenNumberTypeNotSupported_ThrowNotSupportedException<TNumberType>(TNumberType number)
-		where TNumberType : INumberBase<TNumberType>
+	[Test]
+	public async Task GetBitsSize_WhenNumberProvided_ReturnBitsSize()
 	{
-		//Act
-		var bytes = () => number.GetBytes();
+		// Arrange
+		var number = TNumberType.One;
 
-		//Assert
-		_ = bytes.Should().Throw<NotSupportedException>().WithMessage($"There is no definition for getting bytes from a number of type '{typeof(TNumberType).Name}'");
-	}
-
-	[Theory]
-	[MemberData(nameof(GetData), parameters: false)]
-	public void GetBitsSize_WhenNumberProvided_ReturnBitsSize<TNumberType>(TNumberType number)
-		where TNumberType : INumberBase<TNumberType>
-	{
 		// Act
 		var bitsSize = number.GetBitsSize();
 
 		// Assert
 		_ = typeof(TNumberType).Name switch
 		{
-			nameof(Byte) or nameof(SByte) => bitsSize.Should().Be(8),
-			nameof(Int16) or nameof(UInt16) => bitsSize.Should().Be(16),
-			nameof(Int32) or nameof(UInt32) => bitsSize.Should().Be(32),
-			nameof(Int64) or nameof(UInt64) => bitsSize.Should().Be(64),
-			nameof(IntPtr) or nameof(UIntPtr) when IntPtr.Size == 4 => bitsSize.Should().Be(32),
-			nameof(IntPtr) or nameof(UIntPtr) when IntPtr.Size == 8 => bitsSize.Should().Be(64),
-			nameof(Single) => bitsSize.Should().Be(32),
-			nameof(Double) => bitsSize.Should().Be(64),
-			nameof(Decimal) => bitsSize.Should().Be(128),
-			_ => null,
+			nameof(Byte) or nameof(SByte) => await Assert.That(bitsSize).IsEqualTo(8),
+			nameof(Int16) or nameof(UInt16) => await Assert.That(bitsSize).IsEqualTo(16),
+			nameof(Int32) or nameof(UInt32) => await Assert.That(bitsSize).IsEqualTo(32),
+			nameof(Int64) or nameof(UInt64) => await Assert.That(bitsSize).IsEqualTo(64),
+			nameof(IntPtr) or nameof(UIntPtr) when IntPtr.Size == 4 => await Assert.That(bitsSize).IsEqualTo(32),
+			nameof(IntPtr) or nameof(UIntPtr) when IntPtr.Size == 8 => await Assert.That(bitsSize).IsEqualTo(64),
+			nameof(Single) => await Assert.That(bitsSize).IsEqualTo(32),
+			nameof(Double) => await Assert.That(bitsSize).IsEqualTo(64),
+			nameof(Decimal) => await Assert.That(bitsSize).IsEqualTo(128),
+			_ => 0,
 		};
 	}
+}
 
-	[Theory]
-	[MemberData(nameof(GetData), parameters: true)]
-	public void GetBitsSize_WhenNumberTypeNotSupported_ThrowNotSupportedException<TNumberType>(TNumberType number)
-		where TNumberType : INumberBase<TNumberType>
+public class NumericsExtensionsTests
+{
+	[Test]
+	public async Task GetBytes_WhenNumberTypeNotSupported_ThrowNotSupportedException()
 	{
+		// Arrange
+		var number = new Int128(1, 1);
+
 		//Act
-		var bitsSize = () => number.GetBitsSize();
+		byte[] bytes() => number.GetBytes();
 
 		//Assert
-		_ = bitsSize.Should().Throw<NotSupportedException>().WithMessage($"There is no definition for getting the bits size from a number of type '{typeof(TNumberType).Name}'");
+		_ = await Assert.That(bytes).Throws<NotSupportedException>().WithMessage($"There is no definition for getting bytes from a number of type '{typeof(Int128).Name}'");
+	}
+
+	[Test]
+	public async Task GetBitsSize_WhenNumberTypeNotSupported_ThrowNotSupportedException()
+	{
+		// Arrange
+		var number = new Int128(1, 1);
+
+		//Act
+		int size() => number.GetBitsSize();
+
+		//Assert
+		_ = await Assert.That(size).Throws<NotSupportedException>().WithMessage($"There is no definition for getting the bits size from a number of type '{typeof(Int128).Name}'");
 	}
 }

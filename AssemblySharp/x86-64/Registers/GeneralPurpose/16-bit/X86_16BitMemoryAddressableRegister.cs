@@ -50,6 +50,20 @@ public class X86_16BitMemoryAddressableRegister<T1, T2, T3, T4> : IX86_16BitsGen
 		X86_16BitMemoryAddressableRegister<T3, T4, T1, T2> indexRegister
 	) => new() { Base = baseRegister, Index = indexRegister };
 
+	private static byte GetPairRmValue(byte leftRegisterCode, byte rightRegisterCode, string leftRegisterName, string rightRegisterName) =>
+		(leftRegisterCode, rightRegisterCode) switch
+		{
+			var (left, right) when left == X86Registers.BX.RegisterCode && right == X86Registers.SI.RegisterCode => 0x00,
+			var (left, right) when left == X86Registers.SI.RegisterCode && right == X86Registers.BX.RegisterCode => 0x00,
+			var (left, right) when left == X86Registers.BX.RegisterCode && right == X86Registers.DI.RegisterCode => 0x01,
+			var (left, right) when left == X86Registers.DI.RegisterCode && right == X86Registers.BX.RegisterCode => 0x01,
+			var (left, right) when left == X86Registers.BP.RegisterCode && right == X86Registers.SI.RegisterCode => 0x02,
+			var (left, right) when left == X86Registers.SI.RegisterCode && right == X86Registers.BP.RegisterCode => 0x02,
+			var (left, right) when left == X86Registers.BP.RegisterCode && right == X86Registers.DI.RegisterCode => 0x03,
+			var (left, right) when left == X86Registers.DI.RegisterCode && right == X86Registers.BP.RegisterCode => 0x03,
+			_ => throw new NotImplementedException($"Register pair {leftRegisterName} - {rightRegisterName} does not have an Rm value"),
+		};
+
 	public byte GetRmValue() =>
 		RegisterCode switch
 		{
@@ -60,23 +74,7 @@ public class X86_16BitMemoryAddressableRegister<T1, T2, T3, T4> : IX86_16BitsGen
 			_ => throw new NotImplementedException($"Register {Name} does not have an Rm value"),
 		};
 
-	public byte GetRmValue(X86_16BitMemoryAddressableRegister<T1, T2, T3, T4> baseRegister) =>
-		true switch
-		{
-			true when baseRegister.RegisterCode == X86Registers.BX.RegisterCode && RegisterCode == X86Registers.SI.RegisterCode => 0x00,
-			true when baseRegister.RegisterCode == X86Registers.BX.RegisterCode && RegisterCode == X86Registers.DI.RegisterCode => 0x01,
-			true when baseRegister.RegisterCode == X86Registers.BP.RegisterCode && RegisterCode == X86Registers.SI.RegisterCode => 0x02,
-			true when baseRegister.RegisterCode == X86Registers.BP.RegisterCode && RegisterCode == X86Registers.DI.RegisterCode => 0x03,
-			_ => throw new NotImplementedException($"Register pair {baseRegister.Name} - {Name} does not have an Rm value"),
-		};
+	public byte GetRmValue(X86_16BitMemoryAddressableRegister<T1, T2, T3, T4> baseRegister) => GetPairRmValue(baseRegister.RegisterCode, RegisterCode, baseRegister.Name, Name);
 
-	public byte GetRmValue(X86_16BitMemoryAddressableRegister<T3, T4, T1, T2> indexRegister) =>
-		true switch
-		{
-			true when RegisterCode == X86Registers.BX.RegisterCode && indexRegister.RegisterCode == X86Registers.SI.RegisterCode => 0x00,
-			true when RegisterCode == X86Registers.BX.RegisterCode && indexRegister.RegisterCode == X86Registers.DI.RegisterCode => 0x01,
-			true when RegisterCode == X86Registers.BP.RegisterCode && indexRegister.RegisterCode == X86Registers.SI.RegisterCode => 0x02,
-			true when RegisterCode == X86Registers.BP.RegisterCode && indexRegister.RegisterCode == X86Registers.DI.RegisterCode => 0x03,
-			_ => throw new NotImplementedException($"Register pair {Name} - {indexRegister.Name} does not have an Rm value"),
-		};
+	public byte GetRmValue(X86_16BitMemoryAddressableRegister<T3, T4, T1, T2> indexRegister) => GetPairRmValue(RegisterCode, indexRegister.RegisterCode, Name, indexRegister.Name);
 }
